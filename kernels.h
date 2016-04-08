@@ -37,7 +37,7 @@ void vertex2normalKernel(float3 * out, const float3 * in, uint2 imageSize);
 void mm2metersKernel(float * out, uint2 outSize, const ushort * in,
 		uint2 inSize);
 
-void preprocessing_output(float * ScaledDepth0, float * floatDepth);
+void preprocessing_output();
 
 
 void send_data(float * a, int length, std::string str);
@@ -45,6 +45,18 @@ void sender_bind(int port, std::string str);
 void receive_data(float *a, int length, std::string str);
 void receiver_bind(int port);
 void receive_data_matrix4(Matrix4 *data, int bytes_length, std::string data_name);
+
+
+void send_data(float * a, int length, std::string str, int socketHandle);
+void sender_bind(int port, std::string str, int socketHandle);
+void receive_data(float *a, int length, std::string str, int socketConnection);
+void receiver_bind(int port, int socketConnection);
+
+
+void send_data_bytes(char * a, int length, std::string str, int socketHandle);
+void receive_data_bytes(char *a, int length, std::string str, int socketConnection);
+
+
 
 void halfSampleRobustImageKernel(float* out, const float* in, uint2 imageSize,
 		const float e_d, const int r);
@@ -174,7 +186,7 @@ public:
 	}
 
 
-    void preprocessing_output(float * ScaledDepth0, float * floatDepth);
+    void preprocessing_output();
 	bool preprocessing(const ushort * inputDepth, const uint2 inputSize);
 /*	
     bool tracking_input();
@@ -189,6 +201,18 @@ public:
     void receive_data(float *a, int length, std::string str);
     void receiver_bind(int port);
     void receive_data_matrix4(Matrix4 *data, int bytes_length, std::string data_name);
+ 
+    void send_data(float * a, int length, std::string str, int socketHandle);
+    void sender_bind(int port, std::string str, int socketHandle);
+    void receive_data(float *a, int length, std::string str, int socketConnection);
+    void receiver_bind(int port, int socketConnection);
+
+
+    void send_data_bytes(char * a, int length, std::string str, int socketHandle);
+    void receive_data_bytes(char *a, int length, std::string str, int socketConnection);
+
+
+
 
     bool tracking(float4 k, float icp_threshold, uint tracking_rate,
 			uint frame);

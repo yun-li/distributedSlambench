@@ -46,6 +46,12 @@
 #endif
 
 #define MAXHOSTNAME 256
+#define PREPROCESSING2TRACKING 1
+#define TRACKING2INTEGRATION 2
+#define TRACKING2RAYCASTING 3
+#define INTEGRATION2RAYCASTING 4
+#define RAYCASTING2PREPROCESSING 5 
+
 
 using namespace std;
 
@@ -71,16 +77,18 @@ float3 ** inputNormal;
 
 
 // socket
-struct hostent *hPtr;
-struct sockaddr_in remoteSocketInfo;
-int socketHandle;
-int socketConnection;
 
-int socketHandle_raycasting_tracking;
-int socketHandle_raycasting_integration;
+int socketHandle_preprocessing_tracking;
+int socketHandle_tracking_integration;
+int socketHandle_tracking_raycasting;
+int socketHandle_integration_raycasting;
+int socketHandle_raycasting_preprocessing;
 
-
-
+int socketConnection_preprocessing_tracking;
+int socketConnection_tracking_integration;
+int socketConnection_tracking_raycasting;
+int socketConnection_integration_raycasting;
+int socketConnection_raycasting_preprocessing;
 
 bool print_kernel_timing = false;
 #ifdef __APPLE__
@@ -939,9 +947,12 @@ void renderVolumeKernel(uchar4* out, const uint2 depthSize, const Volume volume,
 }
 
 
-void Kfusion::sender_bind(int port, string str)
+void Kfusion::sender_bind(int port, string ip, int type)
 {
 
+    int socketHandle;
+    struct hostent *hPtr;
+    struct sockaddr_in remoteSocketInfo;
     const char *remoteHost="localhost";
     int portNumber = port;
     bzero(&remoteSocketInfo, sizeof(sockaddr_in));  // Clear structure memory
@@ -952,6 +963,8 @@ void Kfusion::sender_bind(int port, string str)
         cerr << "Error number: " << ECONNREFUSED << endl;
         exit(EXIT_FAILURE);
     }   
+
+
 
     if((socketHandle = socket(AF_INET, SOCK_STREAM, 0)) < 0)
     {   
@@ -968,12 +981,41 @@ void Kfusion::sender_bind(int port, string str)
     {   
         //close(socketHandle);
         //exit(EXIT_FAILURE);
-    }   
+    }
+
+    if(type == PREPROCESSING2TRACKING){
+
+        socketHandle_preprocessing_tracking = socketHandle;
+        cerr << "socketHandle_preprocessing_tracking " << socketHandle_preprocessing_tracking; 
+
+    }else if(type == TRACKING2INTEGRATION){
+
+        socketHandle_tracking_integration = socketHandle;
+        cerr << "socketHandle_tracking_integration " << socketHandle_tracking_integration;
+
+    }else if(type == TRACKING2RAYCASTING){
+
+        socketHandle_tracking_raycasting = socketHandle;
+        cerr << "socketHandle_tracking_raycasting " << socketHandle_tracking_raycasting;
+
+    }else if(type == INTEGRATION2RAYCASTING)    {
+
+        socketHandle_integration_raycasting = socketHandle;
+        cerr << "socketHandle_integration_raycasting: " << socketHandle_integration_raycasting;
+
+    }else if(type == RAYCASTING2PREPROCESSING){
+
+        socketHandle_raycasting_preprocessing = socketHandle;
+        cerr << "socketHandle_raycasting_preprocessing: " << socketHandle_raycasting_preprocessing; 
+    }
+
 }
 
 
 
-void Kfusion::send_data(float * data, int length, string dataName){
+void Kfusion::send_data(float * data, int length, string dataName, int socketHandle){
+
+
     int sc = 0;  // Actual number of bytes read by function read()
     //sc = send(socketHandle, (char *)a, length * 4, 0); 
     int bytes_sent = 0;
@@ -987,6 +1029,27 @@ void Kfusion::send_data(float * data, int length, string dataName){
         bytes_sent += sc;
     }
 }
+
+void Kfusion::send_data_bytes(char * data, int byte_length, string dataName, int socketHandle)
+{
+    
+    int sc = 0;  // Actual number of bytes read by function read()
+    //sc = send(socketHandle, (char *)a, length * 4, 0); 
+    int byte_sent = 0;
+    while(byte_sent < byte_length){
+        sc = send(socketHandle, 
+                ((char *)data) + byte_sent, 
+                (byte_length - byte_sent) > 40960 ? 40960 : (byte_length - byte_sent),
+                0);
+        //std::this_thread::sleep_for(std::chrono::seconds(1));
+        cout << dataName << " bytes sent " << sc << endl;
+        byte_sent += sc;
+    }
+
+}
+
+
+
 
 /*
 void Kfusion::send_data(float * a, int length)
@@ -1115,7 +1178,7 @@ void Kfusion::receive_data_tracking(int length)
 }
 */
 
-void Kfusion::receiver_bind(int port)
+void Kfusion::receiver_bind(int port, int type)
 {
         struct sockaddr_in socketInfo;
         char sysHost[MAXHOSTNAME+1];  // Hostname of this computer we are running on
@@ -1159,16 +1222,41 @@ void Kfusion::receiver_bind(int port)
 
         listen(socketHandle, 1);
 
-        socketConnection;
+        //socketConnection;
+        int socketConnection;
         if( (socketConnection = accept(socketHandle, NULL, NULL)) < 0)
         {
             exit(EXIT_FAILURE);
         }
         close(socketHandle);
+
+
+        if(type == PREPROCESSING2TRACKING){
+
+            socketConnection_preprocessing_tracking = socketHandle;
+
+        }else if(type == TRACKING2INTEGRATION){
+
+            socketConnection_tracking_integration = socketHandle;
+
+        }else if(type == TRACKING2RAYCASTING){
+
+            socketConnection_tracking_raycasting = socketHandle;
+
+        }else if(type == INTEGRATION2RAYCASTING)    {
+
+            socketConnection_integration_raycasting = socketHandle;
+
+        }else if(type == RAYCASTING2PREPROCESSING){
+
+            socketConnection_raycasting_preprocessing = socketHandle;
+        }
+
+
 }
 
 
-void Kfusion::receive_data(float *data, int length, string data_name)
+void Kfusion::receive_data(float *data, int length, string data_name, int socketConnection)
 {
     int rc;
     int received = 0;
@@ -1184,6 +1272,21 @@ void Kfusion::receive_data(float *data, int length, string data_name)
 
 }
 
+void Kfusion::receive_data_bytes(char * data, int bytes_length, string data_name, int socketConnection)
+{
+    int rc;
+    int received = 0;
+    while(received < bytes_length){
+        rc = recv(socketConnection, 
+                    ((char *)data) + received, 
+                    bytes_length - received, 0); 
+        received += rc;
+    }
+    cerr << data_name  << " received: "<< received << "\t" <<  endl;
+
+}
+
+/*
 void Kfusion::receive_data_matrix4(Matrix4 *data, int bytes_length, string data_name)
 {
     int rc;
@@ -1200,7 +1303,7 @@ void Kfusion::receive_data_matrix4(Matrix4 *data, int bytes_length, string data_
 
 }
                                                                                   
-
+*/
 bool Kfusion::preprocessing(const ushort * inputDepth, const uint2 inputSize) {
     
 	mm2metersKernel(floatDepth, computationSize, inputDepth, inputSize);
@@ -1209,8 +1312,8 @@ bool Kfusion::preprocessing(const ushort * inputDepth, const uint2 inputSize) {
     //preprocessing_output(ScaledDepth[0], floatDepth);
 
     cout << "computationSize.x " << computationSize.x << "  computationSize.y: " << computationSize.y << endl;
-    send_data(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0" );
-    send_data(floatDepth, computationSize.x * computationSize.y, "floatDepth" );
+    send_data(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0" , socketHandle_preprocessing_tracking);
+    send_data(floatDepth, computationSize.x * computationSize.y, "floatDepth" , socketHandle_preprocessing_tracking);
     preprocessing_output();
 	return true;
 }
@@ -1219,9 +1322,9 @@ bool Kfusion::tracking(float4 k, float icp_threshold, uint tracking_rate,
 		uint frame) {
 
     //tracking_input();
-    receive_data(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0");
-    receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
-    preprocessing_output();
+    receive_data(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0", socketConnection_preprocessing_tracking);
+    receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth", socketConnection_preprocessing_tracking);
+    //preprocessing_output();
     
     if (frame % tracking_rate != 0)
 		return false;
@@ -1270,18 +1373,34 @@ bool Kfusion::tracking(float4 k, float icp_threshold, uint tracking_rate,
 
 	bool result =  checkPoseKernel(pose, oldPose, reductionoutput, computationSize, track_threshold);
 	//reductionoutput = (float*) calloc(sizeof(float) * 8 * 32, 1);
- /*   send_data(reductionoutput, 8 * 32, "reductionoutput");
-    send_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
+    send_data(reductionoutput, 8 * 32, "reductionoutput", socketHandle_tracking_integration);
+    send_data(floatDepth, computationSize.x * computationSize.y, "floatDepth", socketHandle_tracking_integration);
 
-    int r1 = send(socketHandle,  (char *)&pose,  sizeof(Matrix4),  0);  
-    int r2  =send(socketHandle,  (char *)&oldPose,  sizeof(Matrix4),  0);  
+    int r1 = send(socketHandle_tracking_integration,  (char *)&pose,  sizeof(Matrix4),  0);  
+    int r2  =send(socketHandle_tracking_integration,  (char *)&oldPose,  sizeof(Matrix4),  0);  
     cerr << "sent pose: " << r1 << endl;
     cerr << "sent oldpose: " << r2 << endl;
-*/
+
+    send_data_bytes((char*)vertex, 
+            sizeof(float3) * computationSize.x * computationSize.y,
+            "vertex", socketHandle_tracking_raycasting);
+
+    send_data_bytes((char*)normal, 
+            sizeof(float3) * computationSize.x * computationSize.y,
+            "normal", socketHandle_tracking_raycasting);
+
     return result;
 }
 
 bool Kfusion::raycasting(float4 k, float mu, uint frame) {
+
+
+    receive_data_bytes((char*)vertex, sizeof(float3) * computationSize.x * computationSize.y, "vertex", socketConnection_tracking_raycasting);
+    receive_data_bytes((char*)normal, sizeof(float3) * computationSize.x * computationSize.y, "normal", socketConnection_tracking_raycasting);
+
+    receive_data_bytes((char *)volume.data, sizeof(short2) * volume.size.x * volume.size.y * volume.size.z, "volume size", socketConnection_integration_raycasting);  
+
+    receive_data_bytes((char *)&pose, sizeof(pose), "pose_raycast", socketConnection_integration_raycasting);
 
 	bool doRaycast = false;
 
@@ -1300,13 +1419,13 @@ bool Kfusion::raycasting(float4 k, float mu, uint frame) {
 
 bool Kfusion::integration(float4 k, uint integration_rate, float mu,
 		uint frame) {
-/*
+
     receive_data(reductionoutput, 8 * 32, "reductionoutput");
     receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
     
     receive_data_matrix4(&pose, sizeof(Matrix4), "pose");
     receive_data_matrix4(&oldPose, sizeof(Matrix4), "oldpose");
-*/
+
 
 	bool doIntegrate = checkPoseKernel(pose, oldPose, reductionoutput,
 			computationSize, track_threshold);
@@ -1319,8 +1438,11 @@ bool Kfusion::integration(float4 k, uint integration_rate, float mu,
 		doIntegrate = false;
 	}
 
-	return doIntegrate;
+    send_data_bytes((char *)volume.data, sizeof(short2) * volume.size.x * volume.size.y * volume.size.z, "volume sent", socketHandle_integration_raycasting);
 
+    send_data_bytes((char *) &pose, sizeof(pose), "post to raycasting", socketHandle_integration_raycasting); 
+
+	return doIntegrate;
 }
 
 void Kfusion::dumpVolume(std::string filename) {
