@@ -74,9 +74,13 @@ float3 ** inputNormal;
 struct hostent *hPtr;
 struct sockaddr_in remoteSocketInfo;
 int socketHandle;
-
-
 int socketConnection;
+
+int socketHandle_raycasting_tracking;
+int socketHandle_raycasting_integration;
+
+
+
 
 bool print_kernel_timing = false;
 #ifdef __APPLE__
@@ -971,18 +975,16 @@ void Kfusion::sender_bind(int port, string str)
 
 void Kfusion::send_data(float * data, int length, string dataName){
     int sc = 0;  // Actual number of bytes read by function read()
-
     //sc = send(socketHandle, (char *)a, length * 4, 0); 
     int bytes_sent = 0;
     while(bytes_sent < length * 4){
         sc = send(socketHandle, 
-                (char *)&data[bytes_sent / 4], 
+                ((char *)data) + bytes_sent, 
                 (length * 4 - bytes_sent) > 40960 ? 40960 : (length * 4 - bytes_sent),
                 0);
         //std::this_thread::sleep_for(std::chrono::seconds(1));
-
         cout << dataName << " bytes sent " << sc << endl;
-        bytes_sent += 40960; 
+        bytes_sent += sc;
     }
 }
 
@@ -1168,17 +1170,17 @@ void Kfusion::receiver_bind(int port)
 
 void Kfusion::receive_data(float *data, int length, string data_name)
 {
-    int rc1;
-    int received1 = 0;
-    while(received1 < length * 4){
-        rc1 = recv(socketConnection, 
-                    (char *)&ScaledDepth[0][received1/4], 
-                    length * 4 - received1, 0); 
-        received1 += rc1;
+    int rc;
+    int received = 0;
+    while(received < length * 4){
+        rc = recv(socketConnection, 
+                    ((char *)data) + received, 
+                    length * 4 - received, 0); 
+        received += rc;
     }
         
     //std::this_thread::sleep_for(std::chrono::seconds(1));
-    cerr << "data received: "  << data_name << received1 << "\t" <<  endl;
+    cerr << "data received: "  << data_name << received << "\t" <<  endl;
 
 }
 
@@ -1188,7 +1190,7 @@ void Kfusion::receive_data_matrix4(Matrix4 *data, int bytes_length, string data_
     int received = 0;
     while(received < bytes_length){
         rc = recv(socketConnection, 
-                    (char *)data, 
+                    ((char *)data) + received, 
                     bytes_length - received, 0); 
         received += rc;
     }
@@ -1209,7 +1211,7 @@ bool Kfusion::preprocessing(const ushort * inputDepth, const uint2 inputSize) {
     cout << "computationSize.x " << computationSize.x << "  computationSize.y: " << computationSize.y << endl;
     send_data(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0" );
     send_data(floatDepth, computationSize.x * computationSize.y, "floatDepth" );
-
+    preprocessing_output();
 	return true;
 }
 
@@ -1217,34 +1219,10 @@ bool Kfusion::tracking(float4 k, float icp_threshold, uint tracking_rate,
 		uint frame) {
 
     //tracking_input();
-    //receive_data(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0");
-    //receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
-
-    int length = computationSize.x * computationSize.y;
-
-    int rc1, rc2;
-    int received1 = 0;
-    int received2 = 0;
-    while(received1 < length * 4){
-        rc1 = recv(socketConnection, 
-                    (char *)&(ScaledDepth[0][received1/4]), 
-                    length * 4 - received1, 0); 
-        received1 += rc1;
-    }
-        
-        //std::this_thread::sleep_for(std::chrono::seconds(1));
-
-    while(received2 < length * 4){
-        rc2 = recv(socketConnection, 
-                    (char *)&(floatDepth[received2/4]), 
-                    length * 4 - received2, 0);
-        received2 += rc2;
-    }
-    //std::this_thread::sleep_for(std::chrono::seconds(1));
-    cerr << "data received: ScaledDepth0" << received1 << "\t" <<  endl;
-    cerr << "data received: floatDepth" << received2 << "\t" <<  endl;
-
-
+    receive_data(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0");
+    receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
+    preprocessing_output();
+    
     if (frame % tracking_rate != 0)
 		return false;
 
@@ -1292,14 +1270,14 @@ bool Kfusion::tracking(float4 k, float icp_threshold, uint tracking_rate,
 
 	bool result =  checkPoseKernel(pose, oldPose, reductionoutput, computationSize, track_threshold);
 	//reductionoutput = (float*) calloc(sizeof(float) * 8 * 32, 1);
-    send_data(reductionoutput, 8 * 32, "reductionoutput");
+ /*   send_data(reductionoutput, 8 * 32, "reductionoutput");
     send_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
 
     int r1 = send(socketHandle,  (char *)&pose,  sizeof(Matrix4),  0);  
     int r2  =send(socketHandle,  (char *)&oldPose,  sizeof(Matrix4),  0);  
     cerr << "sent pose: " << r1 << endl;
     cerr << "sent oldpose: " << r2 << endl;
-
+*/
     return result;
 }
 
@@ -1322,13 +1300,13 @@ bool Kfusion::raycasting(float4 k, float mu, uint frame) {
 
 bool Kfusion::integration(float4 k, uint integration_rate, float mu,
 		uint frame) {
-
+/*
     receive_data(reductionoutput, 8 * 32, "reductionoutput");
     receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
     
     receive_data_matrix4(&pose, sizeof(Matrix4), "pose");
     receive_data_matrix4(&oldPose, sizeof(Matrix4), "oldpose");
-
+*/
 
 	bool doIntegrate = checkPoseKernel(pose, oldPose, reductionoutput,
 			computationSize, track_threshold);
@@ -1390,3 +1368,30 @@ void Kfusion::renderDepth(uchar4 * out, uint2 outputSize) {
 void synchroniseDevices() {
 	// Nothing to do in the C++ implementation
 }
+
+
+
+
+
+
+void Kfusion::preprocessing_output(){
+    
+    ofstream outfileFloatDepth;
+    outfileFloatDepth.open("floatDepth.txt");
+    for(int i = 0; i < computationSize.x * computationSize.y; ++i){
+            outfileFloatDepth << floatDepth[i] << "\n";
+    }
+    outfileFloatDepth.close();
+
+    ofstream outfileScaledDepth;
+    outfileScaledDepth.open("ScaledDepth0.txt");
+    for(int i = 0; i < computationSize.x * computationSize.y; ++i){
+            outfileScaledDepth << ScaledDepth[0][i] << "\n";
+    }
+    outfileScaledDepth.close();
+}
+
+
+
+
+
