@@ -1234,24 +1234,28 @@ void Kfusion::receiver_bind(int port, int type)
         if(type == PREPROCESSING2TRACKING){
 
             socketConnection_preprocessing_tracking = socketHandle;
+            cerr << "socketConnection_preprocessing_tracking" << socketConnection_preprocessing_tracking << "\n";
 
         }else if(type == TRACKING2INTEGRATION){
 
             socketConnection_tracking_integration = socketHandle;
+            cerr << "socketConnection_tracking_integration " << socketConnection_tracking_integration << "\n";
 
         }else if(type == TRACKING2RAYCASTING){
 
             socketConnection_tracking_raycasting = socketHandle;
+            cerr << "socketConnection_tracking_raycasting " << socketConnection_tracking_raycasting << "\n";
 
         }else if(type == INTEGRATION2RAYCASTING)    {
 
             socketConnection_integration_raycasting = socketHandle;
+            cerr << "socketConnection_integration_raycasting " << socketConnection_integration_raycasting << "\n";
 
         }else if(type == RAYCASTING2PREPROCESSING){
 
             socketConnection_raycasting_preprocessing = socketHandle;
+            cerr  << "socketConnection_raycasting_preprocessing " << socketConnection_raycasting_preprocessing << "\n"; 
         }
-
 
 }
 
@@ -1420,11 +1424,11 @@ bool Kfusion::raycasting(float4 k, float mu, uint frame) {
 bool Kfusion::integration(float4 k, uint integration_rate, float mu,
 		uint frame) {
 
-    receive_data(reductionoutput, 8 * 32, "reductionoutput");
-    receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth");
+    receive_data(reductionoutput, 8 * 32, "reductionoutput", socketConnection_tracking_integration);
+    receive_data(floatDepth, computationSize.x * computationSize.y, "floatDepth", socketConnection_tracking_integration);
     
-    receive_data_matrix4(&pose, sizeof(Matrix4), "pose");
-    receive_data_matrix4(&oldPose, sizeof(Matrix4), "oldpose");
+    receive_data_bytes((char *)&pose, sizeof(Matrix4), "pose", socketConnection_tracking_integration);
+    receive_data_bytes((char *)&oldPose, sizeof(Matrix4), "oldpose", socketConnection_tracking_integration);
 
 
 	bool doIntegrate = checkPoseKernel(pose, oldPose, reductionoutput,
