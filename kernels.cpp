@@ -954,7 +954,7 @@ void Kfusion::sender_bind(int port, string ip, int type)
     int socketHandle;
     struct hostent *hPtr;
     struct sockaddr_in remoteSocketInfo;
-    const char *remoteHost="localhost";
+    const char *remoteHost=ip;
     int portNumber = port;
     bzero(&remoteSocketInfo, sizeof(sockaddr_in));  // Clear structure memory
 
