@@ -37,8 +37,6 @@ void vertex2normalKernel(float3 * out, const float3 * in, uint2 imageSize);
 void mm2metersKernel(float * out, uint2 outSize, const ushort * in,
 		uint2 inSize);
 
-void preprocessing_output();
-
 
 void send_data(float * a, int length, std::string str);
 void sender_bind(int port, std::string str);
@@ -46,6 +44,13 @@ void receive_data(float *a, int length, std::string str);
 void receiver_bind(int port);
 void receive_data_matrix4(Matrix4 *data, int bytes_length, std::string data_name);
 
+void preprocessing_output();
+void output_vertex(std::string name);
+void output_normal(std::string name);
+void output_Matrix4(Matrix4 curpose, std::string name);
+void output_float(float * data, int length, std::string name);
+void output_volume(std::string name);
+void output_trackingresults(TrackData * trackdata, int length, std::string name);
 
 void send_data(float * a, int length, std::string str, int socketHandle);
 void sender_bind(int port, std::string str, int socketHandle);
@@ -179,7 +184,7 @@ public:
 	inline void computeFrame(const ushort * inputDepth, const uint2 inputSize,
 			float4 k, uint integration_rate, uint tracking_rate,
 			float icp_threshold, float mu, const uint frame) {
-		preprocessing(inputDepth, inputSize);
+		preprocessing(inputDepth, inputSize, frame);
 		_tracked = tracking(k, icp_threshold, tracking_rate, frame);
 		_integrated = integration(k, integration_rate, mu, frame);
 		raycasting(k, mu, frame);
@@ -187,7 +192,14 @@ public:
 
 
     void preprocessing_output();
-	bool preprocessing(const ushort * inputDepth, const uint2 inputSize);
+    void output_vertex(std::string);
+    void output_normal(std::string);
+    void output_Matrix4(Matrix4 curpose, std::string name);
+    void output_float(float * data, int length, std::string name);
+    void output_volume(std::string);
+    void output_trackingresults(TrackData * trackdata, int length, std::string name);
+
+	bool preprocessing(const ushort * inputDepth, const uint2 inputSize, uint frame);
 /*	
     bool tracking_input();
     void tracking_output();
