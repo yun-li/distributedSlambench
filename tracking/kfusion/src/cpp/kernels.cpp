@@ -1062,15 +1062,15 @@ void Kfusion::receiver_bind(int port, int type)
 
         gethostname(sysHost, MAXHOSTNAME);  // Get the name of this computer we are running on
         if((hPtr = gethostbyname(sysHost)) == NULL)
-        {   
+        {  /* 
             cerr << "System hostname misconfigured." << endl;
-            exit(EXIT_FAILURE);
+            exit(EXIT_FAILURE);*/
         }   
 
                                // create socket
 
         if((socketHandle = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-        {   
+        {  
             close(socketHandle);
             exit(EXIT_FAILURE);
         }   
