@@ -1,0 +1,451 @@
+frame	acquisition	preprocessing	tracking	integration	raycasting	rendering	computation	total    	X          	Y          	Z         	tracked   	integrated
+2.6777269840 2.6777269840 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+0	0.0000000000	0.0000000000	0.0000000000	0        	
+2.6782612801 2.6782612801 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+1	0.0000000000	0.0000000000	0.0000000000	0        	
+2.6857275963 2.6857275963 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+2	0.0000000000	0.0000000000	0.0000000000	0        	
+2.6902613640 2.6902613640 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+3	0.0000000000	0.0000000000	0.0000000000	0        	
+2.6902613640 2.6902613640 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+4	0.0000000000	0.0000000000	0.0000000000	1        	
+2.6922612190 2.6922612190 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+5	-0.0041258335	0.0016870499	0.0008398294	1        	
+2.6901469231 2.6901469231 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+6	-0.0029340982	0.0011911392	-0.0000082254	1        	
+2.6909389496 2.6909389496 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+7	-0.0031155348	0.0011222363	0.0003004074	1        	
+2.6872971058 2.6872971058 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+8	-0.0044524670	0.0012750626	0.0001521111	1        	
+2.6851127148 2.6851127148 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+9	-0.0063817501	0.0006668568	0.0002014637	1        	
+2.6828958988 2.6828958988 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+10	-0.0062257051	0.0018832684	0.0008051395	1        	
+2.6752612591 2.6752612591 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+11	-0.0071393251	0.0010080338	0.0015122890	1        	
+2.6683869362 2.6683869362 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+12	-0.0071743727	0.0008549690	0.0006951094	1        	
+2.6630766392 2.6630766392 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+13	-0.0095826387	0.0007231236	0.0012762547	1        	
+2.6663537025 2.6663537025 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+14	-0.0096192360	0.0017993450	0.0006784201	1        	
+2.6683535576 2.6683535576 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+15	-0.0130094290	0.0029459000	0.0014513731	1        	
+2.6584255695 2.6584255695 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+16	-0.0119197369	0.0011975765	0.0003652573	1        	
+2.6473915577 2.6473915577 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+17	-0.0138278008	-0.0001690388	-0.0010725260	1        	
+2.6403167248 2.6403167248 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+18	-0.0157728195	-0.0000066757	-0.0000765324	1        	
+2.6313169003 2.6313169003 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+19	-0.0174098015	0.0003106594	-0.0004919767	1        	
+2.6233167648 2.6233167648 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+20	-0.0201979876	-0.0010056496	-0.0008542538	1        	
+2.6217324734 2.6217324734 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+21	-0.0232795477	-0.0000877380	-0.0005007982	1        	
+2.6132788658 2.6132788658 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+22	-0.0287109613	-0.0008072853	-0.0009520054	1        	
+2.6056940556 2.6056940556 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+23	-0.0280455351	-0.0017461777	-0.0026180744	1        	
+2.6078472137 2.6078472137 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+24	-0.0369726419	-0.0002202988	-0.0032455921	1        	
+2.6141712666 2.6141712666 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+25	-0.0376605988	0.0010075569	-0.0040197372	1        	
+2.6099684238 2.6099684238 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+26	-0.0437580347	-0.0004594326	-0.0031554699	1        	
+2.6092097759 2.6092097759 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+27	-0.0495219231	-0.0012099743	-0.0053735971	1        	
+2.6172096729 2.6172096729 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+28	-0.0543600321	0.0005919933	-0.0056668520	1        	
+2.6200830936 2.6200830936 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+29	-0.0606124401	0.0009212494	-0.0084104538	1        	
+2.6170403957 2.6170403957 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+30	-0.0697661638	0.0000653267	-0.0064367056	1        	
+2.6209595203 2.6209595203 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+31	-0.0763549805	0.0008339882	-0.0082596540	1        	
+2.6258451939 2.6258451939 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+32	-0.0835033655	0.0011568069	-0.0105907917	1        	
+2.6236941814 2.6236941814 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+33	-0.0888819695	0.0007903576	-0.0108386278	1        	
+2.6263170242 2.6263170242 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+34	-0.1171245575	0.0001218319	-0.0111933947	1        	
+2.6398448944 2.6398448944 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+35	-0.1206492186	0.0010108948	-0.0138550997	1        	
+2.6465437412 2.6465437412 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+36	-0.1260787249	0.0018167496	-0.0156345367	1        	
+2.6390054226 2.6390054226 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+37	-0.1369496584	-0.0002369881	-0.0144068003	1        	
+2.6308450699 2.6308450699 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+38	-0.1487666368	-0.0008337498	-0.0136822462	1        	
+2.6181199551 2.6181199551 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+39	-0.1517921686	-0.0014970303	-0.0170500278	1        	
+2.5984973907 2.5984973907 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+40	-0.1617203951	-0.0031306744	-0.0163509846	1        	
+2.5818510056 2.5818510056 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+41	-0.1722648144	-0.0041990280	-0.0146285295	1        	
+2.5755863190 2.5755863190 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+42	-0.1855764389	-0.0027203560	-0.0124157667	1        	
+2.5680532455 2.5680532455 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+43	-0.1922650337	-0.0022447109	-0.0090448856	1        	
+2.5621678829 2.5621678829 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+44	-0.1984956264	-0.0029859543	-0.0111519098	1        	
+2.5667006969 2.5667006969 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+45	-0.2068291903	-0.0008966923	-0.0074405670	1        	
+2.5678086281 2.5678086281 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+46	-0.2127908468	-0.0003035069	-0.0073543787	1        	
+2.5607008934 2.5607008934 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+47	-0.2158312798	-0.0021791458	-0.0076769590	1        	
+2.5613470078 2.5613470078 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+48	-0.2204567194	-0.0024559498	-0.0065728426	1        	
+2.5708086491 2.5708086491 reductionoutput bytes sent 1024
+floatDepth bytes sent 1228800
+pose bytes sent 64
+oldPose bytes sent 64
+vertex bytes sent 3686400
+normal bytes sent 3686400
+tracingResult bytes sent 9830400
+raycastPose bytes sent 64
+49	-0.2277066708	-0.0013210773	-0.0057671070	1        	

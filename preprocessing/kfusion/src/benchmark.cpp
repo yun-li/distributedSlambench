@@ -135,7 +135,7 @@ int main(int argc, char ** argv) {
     
     std::cerr << "volume resolution: " << config.volume_resolution.x << "\t" << config.volume_resolution.y << "\t" << config.volume_resolution.z << std::endl; 
 
-    kfusion.sender_bind(8800, "localhost", PREPROCESSING2TRACKING);
+    kfusion.sender_bind(8800, "128.135.11.71", PREPROCESSING2TRACKING);
     kfusion.receiver_bind(8803, RAYCASTING2PREPROCESSING); 
     int gotonextframe;
 	while (reader->readNextDepthFrame(inputDepth)) {
@@ -147,10 +147,10 @@ int main(int argc, char ** argv) {
 		float zt = pose.data[2].w - init_pose.z;
 
 		timings[1] = tock();
-        
+    /*    
         std::cout << "Please input a value to propress next frame "; 
         std::cin >> gotonextframe;
-        
+      */  
 		kfusion.preprocessing(inputDepth, inputSize, frame);
 
         //std::this_thread::sleep_for (std::chrono::seconds(10));

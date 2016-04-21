@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC  -g -O3 -std=c++11    -shared -Wl,-soname,liboclwrapper.so -o liboclwrapper.so CMakeFiles/oclwrapper.dir/OCLWrapper.cpp.o /usr/local/cuda/lib64/libOpenCL.so -Wl,-rpath,/usr/local/cuda/lib64 

@@ -1,0 +1,121 @@
+frame	acquisition	preprocessing	tracking	integration	raycasting	rendering	computation	total    	X          	Y          	Z         	tracked   	integrated
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+0	258.1029336520	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+1	0.1004656350	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+2	0.1031214411	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+3	0.1045554021	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+4	0.1021742449	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+5	0.1001250130	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+6	0.0976518990	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+7	0.0982775871	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+8	0.1012359591	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+9	0.1038329140	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+10	0.0984713470	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+11	0.1020535419	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+12	0.1029875920	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+13	0.1029357060	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+14	0.0985694120	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+15	0.1040912770	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+16	0.1063454250	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+17	0.1063365600	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+18	0.1034982051	0.0000000000	0.0000000000	0.0000000000	
+ScaledDepth0 bytes sent 1228800
+floatDepth bytes sent 1228800
+vertex bytes sent 3686400
+normal bytes sent 3686400
+raycastPose bytes sent 64
+19	0.0983051780	0.0000000000	0.0000000000	0.0000000000	

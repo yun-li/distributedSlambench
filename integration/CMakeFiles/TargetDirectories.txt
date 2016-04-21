@@ -1,0 +1,15 @@
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-benchmark-cpp.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-benchmark-cuda.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-benchmark-opencl.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-benchmark-openmp.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-cpp.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-cuda.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-main-cpp.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-main-cuda.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-main-opencl.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-main-openmp.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-opencl.dir
+/mnt/storage/Distributed/networked/integration/kfusion/CMakeFiles/kfusion-openmp.dir
+/mnt/storage/Distributed/networked/integration/kfusion/thirdparty/CMakeFiles/lodepng.dir
+/mnt/storage/Distributed/networked/integration/kfusion/thirdparty/CMakeFiles/oclwrapper.dir
+/mnt/storage/Distributed/networked/integration/kfusion/thirdparty/CMakeFiles/scene2raw.dir

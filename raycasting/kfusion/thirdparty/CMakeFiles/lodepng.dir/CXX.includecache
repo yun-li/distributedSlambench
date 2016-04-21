@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/storage/Distributed/networked/tracking/kfusion/thirdparty/lodepng.cpp
+lodepng.h
+/mnt/storage/Distributed/networked/tracking/kfusion/thirdparty/lodepng.h
+stdio.h
+-
+stdlib.h
+-
+fstream
+-
+
+/mnt/storage/Distributed/networked/tracking/kfusion/thirdparty/lodepng.h
+string.h
+-
+vector
+-
+string
+-
+lodepng.h
+/mnt/storage/Distributed/networked/tracking/kfusion/thirdparty/lodepng.h
+iostream
+-
+lodepng.h
+/mnt/storage/Distributed/networked/tracking/kfusion/thirdparty/lodepng.h
+

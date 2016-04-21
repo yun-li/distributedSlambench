@@ -1,0 +1,1 @@
+/usr/bin/c++    -g -O3 -std=c++11     CMakeFiles/scene2raw.dir/scene2raw.cpp.o  -o scene2raw -rdynamic liblodepng.so -Wl,-rpath,/mnt/storage/Distributed/networked/tracking/kfusion/thirdparty 
