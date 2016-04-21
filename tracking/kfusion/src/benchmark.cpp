@@ -129,7 +129,7 @@ int main(int argc, char ** argv) {
 
 
     kfusion.receiver_bind(8800, PREPROCESSING2TRACKING);
-    kfusion.sender_bind(8801, "localhost",  TRACKING2INTEGRATION);
+    kfusion.sender_bind(8801, "10.150.63.58",  TRACKING2INTEGRATION);
 //    kfusion.sender_bind(8802, "localhost", TRACKING2RAYCASTING);
 
     while (true) {

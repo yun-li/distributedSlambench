@@ -128,7 +128,7 @@ int main(int argc, char ** argv) {
 	logstream->setf(std::ios::fixed, std::ios::floatfield);
 
     kfusion.receiver_bind(8802, INTEGRATION2RAYCASTING);
-    kfusion.sender_bind(8803, "localhost", RAYCASTING2PREPROCESSING);
+    kfusion.sender_bind(8803, "128.135.11.80", RAYCASTING2PREPROCESSING);
 
     while (true) {
 
