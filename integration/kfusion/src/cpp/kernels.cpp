@@ -1183,9 +1183,9 @@ bool Kfusion::preprocessing(const ushort * inputDepth, const uint2 inputSize, ui
     send_data_bytes((char *)&raycastPose, sizeof(Matrix4), "raycastPose", socketHandle_preprocessing_tracking );
     clock_t t4 = clock();
 
-    cerr << "receivingtime:\t" << (t2 - t1) / CLOCKS_PER_SEC << endl;
-    cerr << "preprocessingtime:\t" << (t3 - t2) / CLOCKS_PER_SEC << endl;
-    cerr << "sendingtime:\t" << (t4 - t3) / CLOCKS_PER_SEC << endl;  
+    cerr << "receivingtime:\t" << (double)(t2 - t1) / CLOCKS_PER_SEC << endl;
+    cerr << "preprocessingtime:\t" << (double)(t3 - t2) / CLOCKS_PER_SEC << endl;
+    cerr << "sendingtime:\t" << (double)(t4 - t3) / CLOCKS_PER_SEC << endl;  
     // output_float(ScaledDepth[0], computationSize.x * computationSize.y, "ScaledDepth0_sent" + to_string(frame));
     // output_float(floatDepth, computationSize.x * computationSize.y, "floatDepth_sent" + to_string(frame) );
     //output_vertex("vertex_sent" + to_string(frame) );
@@ -1271,9 +1271,9 @@ bool Kfusion::tracking(float4 k, float icp_threshold, uint tracking_rate,
     send_data_bytes((char *)&raycastPose, sizeof(Matrix4), "raycastPose", socketHandle_tracking_integration );
     clock_t t4 = clock();
 
-    cerr << "receivingtime:\t" << (t2 - t1) / CLOCKS_PER_SEC << endl;
-    cerr << "preprocessingtime:\t" << (t3 - t2) / CLOCKS_PER_SEC << endl;
-    cerr << "sendingtime:\t" << (t4 - t3) / CLOCKS_PER_SEC << endl;  
+    cerr << "receivingtime:\t" <<(double) (t2 - t1) / CLOCKS_PER_SEC << endl;
+    cerr << "preprocessingtime:\t" <<(double) (t3 - t2) / CLOCKS_PER_SEC << endl;
+    cerr << "sendingtime:\t" << (double)(t4 - t3) / CLOCKS_PER_SEC << endl;  
     //output_float(reductionoutput, 8 * 32, "reductionoutput_sent"  + to_string(frame) );
     //output_float(floatDepth, computationSize.x * computationSize.y, "floatDepth_sent" + to_string(frame) );
     //output_Matrix4(pose, "pose_sent" + to_string(frame) );
@@ -1333,9 +1333,9 @@ bool Kfusion::integration(float4 k, uint integration_rate, float mu,
     clock_t t4 = clock();
 
 
-    cerr << "receivingtime:\t" << (t2 - t1) / CLOCKS_PER_SEC << endl;
-    cerr << "preprocessingtime:\t" << (t3 - t2) / CLOCKS_PER_SEC << endl;
-    cerr << "sendingtime:\t" << (t4 - t3) / CLOCKS_PER_SEC << endl;  
+    cerr << "receivingtime:\t" << (double)(t2 - t1) / CLOCKS_PER_SEC << endl;
+    cerr << "preprocessingtime:\t" << (double)(t3 - t2) / CLOCKS_PER_SEC << endl;
+    cerr << "sendingtime:\t" << (double)(t4 - t3) / CLOCKS_PER_SEC << endl;  
     //output_vertex("vertex_sent" + to_string(frame) );
     //output_normal("vertex_sent" + to_string(frame) );
     //output_volume("volume_sent" + to_string(frame)  );
@@ -1378,9 +1378,9 @@ bool Kfusion::raycasting(float4 k, float mu, uint frame) {
         clock_t t4 = clock();
 
 
-    cerr << "receivingtime:\t" << (t2 - t1) / CLOCKS_PER_SEC << endl;
-    cerr << "preprocessingtime:\t" << (t3 - t2) / CLOCKS_PER_SEC << endl;
-    cerr << "sendingtime:\t" << (t4 - t3) / CLOCKS_PER_SEC << endl;  
+    cerr << "receivingtime:\t" << (double)(t2 - t1) / CLOCKS_PER_SEC << endl;
+    cerr << "preprocessingtime:\t" << (double)(t3 - t2) / CLOCKS_PER_SEC << endl;
+    cerr << "sendingtime:\t" << (double)(t4 - t3) / CLOCKS_PER_SEC << endl;  
      //   output_vertex("vertex_sent" + to_string(frame) );
      //   output_normal("normal_sent" + to_string(frame) );
      //   output_Matrix4(raycastPose,  "raycastPose_sent" + to_string(frame));
